@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>엄빠 머니 사분면 테스트</title>
+<meta name="description" content="『부자 아빠의 리치 패밀리』 속 현금흐름 사분면(E·S·B·I)을 육아 상황 10문항으로 바꾼 셀프체크. 우리 집 돈은 어디서 오고 있을까? 약 2분.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="엄빠 머니 사분면 테스트">
+<meta property="og:description" content="『부자 아빠의 리치 패밀리』 속 현금흐름 사분면(E·S·B·I)을 육아 상황 10문항으로 바꾼 2분 셀프체크. 우리 집 돈은 어디서 오고 있을까?">
+<meta property="og:url" content="https://ybybgo.github.io/money-quadrant-test/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap">
+<style>
+:root{
+  --bg:#F3F0F8; --surface:#FCFBFE; --ink:#2C2740; --muted:#6C6683; --line:#E2DCEE;
+  --accent:#7A4FD6; --accent-soft:#ECE4FA; --btn:#6B3FCB; --btn-ink:#FFFFFF;
+  --e:#3F6CC6; --e-soft:#E3ECFB;
+  --s:#C75B39; --s-soft:#FBE8E1;
+  --b:#2E8463; --b-soft:#DFF2EA;
+  --i:#9A7110; --i-soft:#F7EDD3; --on-q:#FFFFFF;
+  --shadow:0 1px 0 rgba(44,39,64,.04),0 12px 30px -18px rgba(90,60,160,.4);
+  --font-display:"Gowun Batang","Noto Serif KR","Apple SD Gothic Neo",serif;
+  --font-body:"Gowun Dodum","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16131F; --surface:#211D2E; --ink:#EEEAF7; --muted:#A8A1BE; --line:#363049;
+    --accent:#B394F5; --accent-soft:#2E2645; --btn:#B394F5; --btn-ink:#16131F;
+    --e:#86A9EE; --e-soft:#1F2A40; --s:#EE9B7F; --s-soft:#3A2520;
+    --b:#76CBA7; --b-soft:#1B3329; --i:#E2BA5A; --i-soft:#372D16; --on-q:#16131F;
+    --shadow:0 12px 30px -18px rgba(0,0,0,.7); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16131F; --surface:#211D2E; --ink:#EEEAF7; --muted:#A8A1BE; --line:#363049;
+  --accent:#B394F5; --accent-soft:#2E2645; --btn:#B394F5; --btn-ink:#16131F;
+  --e:#86A9EE; --e-soft:#1F2A40; --s:#EE9B7F; --s-soft:#3A2520;
+  --b:#76CBA7; --b-soft:#1B3329; --i:#E2BA5A; --i-soft:#372D16; --on-q:#16131F;
+  --shadow:0 12px 30px -18px rgba(0,0,0,.7); color-scheme:dark;
+}
+[hidden]{display:none!important}
+*,*::before,*::after{box-sizing:border-box}
+html,body{min-height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.55;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;-webkit-tap-highlight-color:transparent}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#app{max-width:480px;margin:0 auto;padding:16px 16px 40px;min-height:100dvh;display:flex;flex-direction:column}
+.screen{display:flex;flex-direction:column;gap:16px;flex:1;animation:rise .22s ease-out}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.eyebrow{font-size:12px;letter-spacing:.1em;color:var(--accent)}
+h1,h2{font-family:var(--font-display);font-weight:700;margin:0;text-wrap:balance}
+h1{font-size:clamp(25px,7.4vw,31px);line-height:1.32}
+h2{font-size:19px;line-height:1.4}
+p{margin:0}
+.lede{color:var(--muted);font-size:15px}
+.fine{font-size:12px;color:var(--muted)}
+.card{background:var(--surface);border-radius:22px;box-shadow:var(--shadow);padding:18px}
+.btn{display:block;width:100%;padding:16px;border-radius:16px;background:var(--btn);color:var(--btn-ink);font-size:17px;text-align:center}
+.btn.ghost{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+.btn:active{transform:scale(.98)}
+
+/* compass */
+.compass{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:relative}
+.q{border-radius:20px;padding:14px 14px;display:flex;flex-direction:column;gap:4px;min-height:132px;color:var(--on-q)}
+.q b{font-family:var(--font-display);font-size:48px;font-weight:700;line-height:1}
+.q span{font-size:15px;font-weight:700;margin-top:auto}
+.q small{font-size:11.5px;opacity:.9}
+.q.E{background:var(--e)} .q.B{background:var(--b)}
+.q.S{background:var(--s)} .q.I{background:var(--i)}
+.q.B,.q.I{text-align:right;align-items:flex-end}
+.axis{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);padding:0 4px}
+
+/* question */
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.back{padding:8px 12px;border-radius:999px;background:var(--surface);box-shadow:var(--shadow);font-size:14px}
+.count{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.track{height:4px;border-radius:4px;background:var(--line);overflow:hidden}
+.fill{height:100%;background:var(--accent);transition:width .25s ease}
+.qtext{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.45;padding:6px 2px 2px}
+.qsub{font-size:13px;color:var(--muted);padding:0 2px}
+.opts{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.opt{text-align:left;background:var(--surface);box-shadow:var(--shadow);border-radius:16px;padding:15px 16px;font-size:15.5px;line-height:1.45;border:2px solid transparent;transition:border-color .12s,transform .12s}
+.opt:active,.opt.picked{border-color:var(--accent);transform:scale(.99)}
+
+/* result */
+.badge{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:20px;font-family:var(--font-display);font-size:36px;font-weight:700}
+.hero{display:flex;gap:14px;align-items:center}
+.hero .t{display:flex;flex-direction:column;gap:2px}
+.bars{display:flex;flex-direction:column;gap:9px}
+.bars{gap:14px}
+.bar{display:flex;flex-direction:column;gap:5px;font-size:13px}
+.bl{display:flex;align-items:baseline;gap:8px}
+.bl b{font-family:var(--font-display);font-size:18px;width:16px}
+.bl span{flex:1}
+.bl span small{color:var(--muted)}
+.badges{display:flex;gap:6px}
+.badges .badge{width:56px;height:56px;font-size:32px}
+.type-h{display:flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:700;font-size:17px;margin-bottom:10px}
+.type-h i{font-style:normal;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:10px;font-size:18px}
+.bar .tr{height:12px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar .tr i{display:block;height:100%;border-radius:6px;transition:width .6s ease}
+.bar em{font-style:normal;text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+.list{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14.5px}
+.label{font-size:12px;color:var(--accent);letter-spacing:.06em;margin-bottom:6px}
+.talk{background:var(--accent-soft);border-radius:16px;padding:14px 16px;font-size:15px}
+.talk q{font-family:var(--font-display);font-weight:700;quotes:"“" "”"}
+.prio{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13.5px}
+.prio ol{margin:6px 0 0;padding-left:18px}
+.prio div{background:var(--bg);border-radius:14px;padding:12px}
+.prio h3{font-size:13px;margin:0;color:var(--muted);font-weight:400}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.follow{display:flex;flex-direction:column;gap:6px;text-align:center;text-decoration:none;color:inherit}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-size:14px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div class="toast" id="toast" hidden></div>
+<script>
+// 결과 화면 맨 아래 '팔로우하기' 링크가 여는 인스타그램 아이디 (@ 빼고)
+const IG_HANDLE = "youbean.ko";
+
+// 각 선택지는 E(봉급생활자)·S(자영업·전문직)·B(사업 시스템 소유)·I(투자자) 중 하나에 1점.
+// 근거: 『부자 아빠의 리치 패밀리』 3강 — 각 사분면 사람들이 자주 쓰는 말·중요하게 여기는 것.
+const QS = [
+  {q:"새벽 수유하다가 문득 드는 돈 생각은?", o:[
+    ["E","복직하면 내 자리, 내 월급 그대로 있겠지?"],
+    ["S","내 실력이면 프리랜서로 시간당 얼마 받을 수 있을까"],
+    ["B","육아하며 불편했던 이거, 서비스로 만들면 되겠는데?"],
+    ["I","내가 자는 동안에도 내 돈은 어디선가 일하고 있겠지"]]},
+  {q:"아기 낮잠으로 2시간이 생겼다!", o:[
+    ["E","자격증 공부나 채용 공고 확인"],
+    ["S","밀린 부업 일감 처리. 내가 해야 제일 빠르고 정확함"],
+    ["B","혼자 다 하던 일 중 남에게 맡길 수 있는 걸 정리"],
+    ["I","경제 뉴스 보고, 넣어둔 것들 수익률 확인"]]},
+  {q:"일하면서 들으면 제일 기분 좋은 말은?", o:[
+    ["E","“이번에 연봉 인상 확정됐어요”"],
+    ["S","“역시 당신 아니면 이거 못 해요”"],
+    ["B","“대표님 안 계셔도 팀이 알아서 잘 돌아가요”"],
+    ["I","“투자 얘기는 다들 ○○님한테 물어보더라고요”"]]},
+  {q:"돌잔치 축하금이 꽤 들어왔다. 어떻게 할까?", o:[
+    ["E","아이 이름으로 적금 들어서 꼬박꼬박 쌓기"],
+    ["S","아이만의 특기 하나 키워줄 교육비로 따로 떼두기"],
+    ["B","전문가랑 상의해서 아이 몫 돈이 굴러갈 구조부터 짜기"],
+    ["I","아이 계좌로 오래 묵혀둘 자산을 사두기"]]},
+  {q:"육아휴직으로 수입이 줄었을 때 가장 크게 느낀 건?", o:[
+    ["E","매달 같은 날 들어오는 월급이 얼마나 든든했는지"],
+    ["S","내가 손을 놓으면 수입도 바로 멈춘다는 불안"],
+    ["B","나 대신 일을 굴려줄 사람이나 팀이 있었으면 하는 아쉬움"],
+    ["I","모아둔 돈이 이자·배당이라도 벌어줬으면 하는 생각"]]},
+  {q:"지인이 ‘나 사업(투자) 시작했어’라고 하면 내 첫마디는?", o:[
+    ["E","“괜찮아? 그거 위험하지 않아?”"],
+    ["S","“그거 네가 직접 다 해야 할 텐데, 시간 돼?”"],
+    ["B","“누구랑 같이 해? 팀은 어떻게 꾸렸어?”"],
+    ["I","“그래서 들어간 돈 대비 얼마나 남아?”"]]},
+  {q:"연말정산·세금 시즌, 나의 모습은?", o:[
+    ["E","공제 항목 꼼꼼히 챙겨서 회사 연말정산에 맞춰 제출"],
+    ["S","영수증 모아서 종합소득세 내가 직접 신고"],
+    ["B","세무사랑 사업 구조부터 같이 설계"],
+    ["I","절세되는 계좌 한도부터 챙김"]]},
+  {q:"여윳돈이 생기면 제일 먼저 하는 건?", o:[
+    ["E","비상금·저축 통장에 넣어 안전하게"],
+    ["S","내 실력 키우는 강의나 장비에 투자"],
+    ["B","나 대신 일해줄 사람이나 자동화 도구에 쓰기"],
+    ["I","내 자산 목록에 하나 더 추가"]]},
+  {q:"아이가 커서 ‘돈은 어떻게 벌어?’ 하고 물으면?", o:[
+    ["E","“회사에서 맡은 일을 하면 매달 월급을 받아”"],
+    ["S","“내가 잘하는 기술로 일해주고 그 값을 받아”"],
+    ["B","“가게나 회사를 만들어서 사람들이 일하게 하면 돼”"],
+    ["I","“모아둔 돈을 잘 심어두면 그 돈이 또 돈을 벌어와”"]]},
+  {q:"딱 1년, 아이한테만 집중해야 한다면 우리 집 수입은?", o:[
+    ["E","휴직 급여 받고 복직만 보장되면 버틸 수 있음"],
+    ["S","솔직히 거의 멈춤. 그게 제일 걱정"],
+    ["B","내가 만든 팀·시스템이 대신 벌어줌"],
+    ["I","투자에서 나오는 돈이 생활비 일부를 받쳐줌"]]},
+];
+
+const TYPES = {
+  E:{name:"안정 설계형 엄빠", en:"Employee · 봉급생활자", side:"시간·노동으로 버는 쪽",
+    one:"고용 안정성, 낮은 위험, 꾸준한 수입을 가장 중요하게 여기는 타입.",
+    good:["매달 들어오는 돈이 예측 가능해서 육아 계획 세우기가 쉬워요","회사 복지(육아휴직·건강검진 등)를 제일 잘 챙겨 써요","무리한 위험을 피해서 집안 살림이 크게 흔들리지 않아요"],
+    watch:["책에서는 세금 면에서 가장 불리한 사분면을 E로 꼽아요 — 월급에서 먼저 떼 가니 활용할 혜택이 적다는 것","회사가 멈추면 내 수입도 함께 멈춰요"],
+    talk:"우리 월급은 엄마·아빠가 시간을 쓰고 받는 돈이야. 그럼 시간 안 쓰고 버는 돈도 있을까?",
+    mission:"이번 달 우리 집 수입을 ‘월급’과 ‘그 밖의 돈’으로 나눠 적어보기"},
+  S:{name:"내 손이 최고 장인형 엄빠", en:"Self-employed · 자영업자·전문직", side:"시간·노동으로 버는 쪽",
+    one:"내 실력과 시간을 팔아 버는 타입. 독립하고 싶고, 남한테 맡기기보다 직접 하는 게 마음 편해요.",
+    good:["실력만큼 수입이 오르고, 일하는 방식을 스스로 정해요","전문성이 확실해서 어디 가도 먹고살 기술이 있어요","주도적인 모습이 아이에게 그대로 보여요"],
+    watch:["책 속 부자 아빠 말로는 S는 일을 멈추면 수입도 끊겨요 — 육아로 손을 놓는 시기가 가장 아픈 타입","‘내가 해야 제일 잘한다’는 생각이 시간을 다 잡아먹을 수 있어요"],
+    talk:"엄마(아빠)는 이 기술로 돈을 벌어. 그런데 엄마가 쉬는 날에도 돈이 들어오게 하려면 어떻게 해야 할까?",
+    mission:"내가 하는 일 중 남에게 넘겨도 되는 일 하나를 골라 적어보기"},
+  B:{name:"시스템 설계자형 엄빠", en:"Big business owner · 대규모 사업가", side:"시스템·자산이 버는 쪽",
+    one:"내가 없어도 돌아가는 구조를 만드는 데 관심이 많은 타입. 혼자 잘하기보다 사람과 시스템을 키워요.",
+    good:["책에서 말하는 B는 1년 자리를 비워도 사업이 더 잘 굴러가게 만드는 사람이에요","남의 시간·남의 돈을 활용하는 법을 알아요","육아 때문에 잠깐 멈춰도 수입이 이어질 가능성이 커요"],
+    watch:["구조를 만들기까지는 시간과 시행착오가 많이 들어요","사람을 믿고 맡기는 연습이 계속 필요해요"],
+    talk:"가게 사장님이 쉬는 날에도 가게는 문을 열지? 누가 대신 일하고 있는 걸까?",
+    mission:"우리 집 일 중에서 ‘시스템으로 바꿀 수 있는 것’(자동이체, 정기배송 등) 하나 만들어보기"},
+  I:{name:"돈에게 일 시키는 투자자형 엄빠", en:"Investor · 투자자", side:"시스템·자산이 버는 쪽",
+    one:"돈이 나를 위해 일하게 만드는 데 관심이 많은 타입. 들인 돈 대비 얼마가 돌아오는지를 먼저 봐요.",
+    good:["일을 안 하는 시간에도 들어오는 돈의 개념을 알고 있어요","숫자로 따져보는 습관이 있어요","아이에게 ‘돈도 일을 한다’는 걸 일찍 보여줄 수 있어요"],
+    watch:["수익률만 보다가 우리 집 현금 흐름(매달 쓸 돈)을 놓칠 수 있어요","남이 정해준 상품을 따라 사는 건 I 사분면이라기보다 그냥 소비에 가까워요 — 이해한 것에만"],
+    talk:"우리가 산 이것도 사실 일을 하고 있어. 무슨 일을 하는지 같이 찾아볼까?",
+    mission:"우리 집 자산 중 ‘매달 돈을 만들어주는 것’과 ‘돈을 가져가는 것’을 한 줄씩 나눠 적기"},
+};
+const ORDER = ["E","B","S","I"]; // 책의 사분면 배치: 왼쪽 위 E, 오른쪽 위 B, 왼쪽 아래 S, 오른쪽 아래 I
+const COLOR = {E:"var(--e)",S:"var(--s)",B:"var(--b)",I:"var(--i)"};
+const SOFT = {E:"var(--e-soft)",S:"var(--s-soft)",B:"var(--b-soft)",I:"var(--i-soft)"};
+
+const app = document.getElementById("app");
+let answers = [];
+const esc = s => s.replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+
+function intro(){
+  answers = [];
+  app.innerHTML = `
+  <section class="screen">
+    <p class="eyebrow">2분 셀프체크 · 10문항</p>
+    <h1>엄빠 머니<br>사분면 테스트</h1>
+    <h2>우리 집 돈은 어디서 오고 있을까?</h2>
+    <p class="lede">『부자 아빠의 리치 패밀리』에 나오는 ‘현금흐름 사분면’을 육아 상황 질문으로 바꿔봤어요. 나는 어느 사분면에 가장 가까운 엄빠일까요?</p>
+    <div class="card" style="display:flex;flex-direction:column;gap:10px">
+      <div class="axis"><span>← 시간·노동으로 버는 돈</span><span>시스템·자산이 버는 돈 →</span></div>
+      <div class="compass">
+        ${ORDER.map(k=>`<div class="q ${k}"><b>${k}</b><span>${TYPES[k].en.split(" · ")[1]}</span><small>${TYPES[k].en.split(" · ")[0]}</small></div>`).join("")}
+      </div>
+      <p class="fine">책 속 부자 아빠는 이 그림을 ‘현금흐름 사분면’이라고 불러요. 한 사람이 여러 사분면에서 동시에 돈을 벌 수도 있어요.</p>
+    </div>
+    <button class="btn" id="start">테스트 시작하기</button>
+    <p class="fine">정답은 없어요. 지금 내 모습에 가장 가까운 걸 골라주세요. 어느 사분면이 더 낫다는 테스트가 아니고, 투자 조언도 아니에요.</p>
+  </section>`;
+  document.getElementById("start").onclick = () => ask(0);
+}
+
+function ask(i){
+  const item = QS[i];
+  const opts = item.o.map((o,j)=>({k:o[0],t:o[1],j})).sort(()=>Math.random()-.5);
+  app.innerHTML = `
+  <section class="screen">
+    <div class="top">
+      <button class="back" id="back">← ${i===0?"처음으로":"이전"}</button>
+      <span class="count">${i+1} / ${QS.length}</span>
+    </div>
+    <div class="track"><div class="fill" style="width:${(i/QS.length)*100}%"></div></div>
+    <p class="qtext">${esc(item.q)}</p>
+    <p class="qsub">가장 가까운 하나를 골라주세요</p>
+    <div class="opts">
+      ${opts.map(o=>`<button class="opt${answers[i]===o.k?" picked":""}" data-k="${o.k}">${esc(o.t)}</button>`).join("")}
+    </div>
+  </section>`;
+  document.getElementById("back").onclick = () => i===0 ? intro() : ask(i-1);
+  app.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+    b.classList.add("picked");
+    answers[i] = b.dataset.k;
+    setTimeout(() => i+1 < QS.length ? ask(i+1) : result(), 160);
+  });
+  window.scrollTo(0,0);
+}
+
+function result(){
+  const score = {E:0,S:0,B:0,I:0};
+  answers.forEach(k => score[k]++);
+  // 공동 1위가 있으면 순서로 하나를 고르지 않고 전부 대표 유형으로 보여준다.
+  const max = Math.max(...Object.values(score));
+  const tops = ORDER.filter(k => score[k] === max);
+  const multi = tops.length > 1;
+  const left = score.E + score.S, right = score.B + score.I;
+  const sideLine = left > right
+    ? `10개 중 ${left}개가 <b>왼쪽(시간·노동으로 버는 돈)</b>이었어요.`
+    : left < right
+    ? `10개 중 ${right}개가 <b>오른쪽(시스템·자산이 버는 돈)</b>이었어요.`
+    : `왼쪽(시간·노동)과 오른쪽(시스템·자산)이 <b>5 : 5</b>로 딱 반반이에요.`;
+  const full = k => { const [en,ko] = TYPES[k].en.split(" · "); return `${en} <small>${ko}</small>`; };
+  const typeBlock = k => { const T = TYPES[k]; return `
+    <div class="card">
+      ${multi ? `<p class="type-h"><i style="background:${SOFT[k]};color:${COLOR[k]}">${k}</i>${T.name}</p><p style="margin-bottom:14px">${T.one}</p>` : ""}
+      <p class="label">이런 게 강점이에요</p>
+      <ul class="list">${T.good.map(x=>`<li>${x}</li>`).join("")}</ul>
+      <p class="label" style="margin-top:16px">이건 한 번 짚어봐요</p>
+      <ul class="list">${T.watch.map(x=>`<li>${x}</li>`).join("")}</ul>
+      <div class="talk" style="margin-top:16px">
+        <p class="label">아이랑 해볼 돈 대화 한 줄</p>
+        <q>${T.talk}</q>
+      </div>
+      <p class="label" style="margin-top:16px">이번 주 미션</p>
+      <p>${T.mission}</p>
+    </div>`; };
+
+  app.innerHTML = `
+  <section class="screen">
+    <p class="eyebrow">나의 머니 사분면</p>
+    <div class="hero">
+      <div class="badges">${tops.map(k=>`<span class="badge" style="background:${SOFT[k]};color:${COLOR[k]}">${k}</span>`).join("")}</div>
+      <div class="t">
+        <h1 style="font-size:24px">${multi ? `${tops.join("·")} 하이브리드 엄빠` : TYPES[tops[0]].name}</h1>
+        <span class="fine">${multi ? `${tops.length}개 사분면이 ${max}개씩 공동 1위` : TYPES[tops[0]].en}</span>
+      </div>
+    </div>
+    ${multi ? `<p>${tops.map(k=>`<b>${TYPES[k].name}</b>`).join("과 ")}의 성향이 똑같이 강하게 나왔어요. 책에서도 한 사람이 여러 사분면에서 동시에 돈을 벌 수 있다고 해요.</p>` : `<p>${TYPES[tops[0]].one}</p>`}
+
+    <div class="card">
+      <p class="label">10문항 중 고른 개수</p>
+      <div class="bars">
+        ${ORDER.map(k=>`<div class="bar"><div class="bl"><b style="color:${COLOR[k]}">${k}</b><span>${full(k)}</span><em>${score[k]}개</em></div><div class="tr"><i style="width:0;background:${COLOR[k]}" data-w="${score[k]*10}"></i></div></div>`).join("")}
+      </div>
+      <p class="fine" style="margin-top:12px">${sideLine}</p>
+    </div>
+
+    ${tops.map(typeBlock).join("")}
+
+    <div class="card">
+      <p class="label">책 속 부자 아빠의 우선순위 비교</p>
+      <div class="prio">
+        <div><h3>빈곤층·중산층</h3><ol><li>고용 안정성</li><li>편안한 삶을 위한 소비</li><li>저축</li><li>(남으면) 투자</li></ol></div>
+        <div><h3>부자</h3><ol><li>투자 포트폴리오의 자산</li><li>직업적 만족감</li><li>저축</li><li>편안한 삶을 위한 소비</li></ol></div>
+      </div>
+      <p class="fine" style="margin-top:10px">책은 아이가 어떤 사분면에 집중하게 될지가 부모의 선택에 달려 있다고 말해요. 결과보다 중요한 건 ‘우리 집 돈이 지금 어디서 오는지’ 아는 것부터.</p>
+    </div>
+
+    <div class="row">
+      <button class="btn ghost" id="share">배우자에게 보내기</button>
+      <button class="btn ghost" id="again">다시 하기</button>
+    </div>
+    <p class="fine" style="text-align:center">남편·아내 결과랑 비교해보면 우리 집 조합이 보여요 👀</p>
+
+    <a class="card follow" href="https://www.instagram.com/${IG_HANDLE}/" target="_blank" rel="noopener">
+      <p class="label">이 테스트를 만든 사람</p>
+      <p style="font-family:var(--font-display);font-weight:700;font-size:18px">동글마미</p>
+      <p style="font-size:14.5px">25년생 딸 키우는 직장인 엄마예요. 육아하면서 궁금한 건 공개 자료로 찾아보고, 우리 아이 일상이랑 같이 나눠요. 가끔은 이런 테스트도 만들어요 :)</p>
+      <span class="btn" style="margin-top:6px">인스타그램에서 팔로우하기</span>
+    </a>
+
+    <p class="fine">참고: 로버트 기요사키, 『부자 아빠의 리치 패밀리』 3강 「어떤 사람이 되고 싶은지 선택하라」. 책의 개념을 바탕으로 동글마미가 만든 재미용 셀프체크이며, 심리검사나 재무 진단이 아니에요. 특정 금융상품을 권하지 않아요.</p>
+  </section>`;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>app.querySelectorAll(".tr i").forEach(i=>i.style.width=i.dataset.w+"%")));
+  document.getElementById("again").onclick = intro;
+  document.getElementById("share").onclick = () => share(tops, score);
+  window.scrollTo(0,0);
+}
+
+async function share(tops, score){
+  const name = tops.length > 1 ? `${tops.join("·")} 하이브리드` : `${tops[0]} — ${TYPES[tops[0]].name}`;
+  const text = `나는 ${name} 나왔어! (E${score.E} S${score.S} B${score.B} I${score.I})\n당신은 어느 사분면이야? 2분이면 돼 👇`;
+  const url = location.href.split("#")[0];
+  try{
+    if(navigator.share){ await navigator.share({title:"엄빠 머니 사분면 테스트", text, url}); return; }
+    await navigator.clipboard.writeText(text+"\n"+url);
+    toast("링크를 복사했어요");
+  }catch(e){ if(e && e.name!=="AbortError") toast("복사가 안 됐어요. 주소창 링크를 보내주세요"); }
+}
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.hidden = false;
+  clearTimeout(toast._t); toast._t = setTimeout(()=>t.hidden=true, 1800);
+}
+intro();
+</script>
+</body>
+</html>
