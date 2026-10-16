@@ -20,30 +20,30 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap">
 <style>
 :root{
-  --bg:#F3F0F8; --surface:#FCFBFE; --ink:#2C2740; --muted:#6C6683; --line:#E2DCEE;
-  --accent:#7A4FD6; --accent-soft:#ECE4FA; --btn:#6B3FCB; --btn-ink:#FFFFFF;
+  --bg:#EDF9F5; --surface:#FBFEFD; --ink:#1E3632; --muted:#5B746F; --line:#D3ECE5;
+  --accent:#0E9478; --accent-soft:#D3F4EB; --btn:#0E8C72; --btn-ink:#FFFFFF;
   --e:#3F6CC6; --e-soft:#E3ECFB;
   --s:#C75B39; --s-soft:#FBE8E1;
   --b:#2E8463; --b-soft:#DFF2EA;
   --i:#9A7110; --i-soft:#F7EDD3; --on-q:#FFFFFF;
-  --shadow:0 1px 0 rgba(44,39,64,.04),0 12px 30px -18px rgba(90,60,160,.4);
+  --shadow:0 1px 0 rgba(44,39,64,.04),0 12px 30px -18px rgba(20,110,90,.35);
   --font-display:"Gowun Batang","Noto Serif KR","Apple SD Gothic Neo",serif;
   --font-body:"Gowun Dodum","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#16131F; --surface:#211D2E; --ink:#EEEAF7; --muted:#A8A1BE; --line:#363049;
-    --accent:#B394F5; --accent-soft:#2E2645; --btn:#B394F5; --btn-ink:#16131F;
+    --bg:#0F1D1A; --surface:#172A26; --ink:#E5F5F1; --muted:#9BBAB3; --line:#274540;
+    --accent:#5FDCC0; --accent-soft:#1B3B34; --btn:#5FDCC0; --btn-ink:#0F1D1A;
     --e:#86A9EE; --e-soft:#1F2A40; --s:#EE9B7F; --s-soft:#3A2520;
-    --b:#76CBA7; --b-soft:#1B3329; --i:#E2BA5A; --i-soft:#372D16; --on-q:#16131F;
+    --b:#76CBA7; --b-soft:#1B3329; --i:#E2BA5A; --i-soft:#372D16; --on-q:#0F1D1A;
     --shadow:0 12px 30px -18px rgba(0,0,0,.7); color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#16131F; --surface:#211D2E; --ink:#EEEAF7; --muted:#A8A1BE; --line:#363049;
-  --accent:#B394F5; --accent-soft:#2E2645; --btn:#B394F5; --btn-ink:#16131F;
+  --bg:#0F1D1A; --surface:#172A26; --ink:#E5F5F1; --muted:#9BBAB3; --line:#274540;
+  --accent:#5FDCC0; --accent-soft:#1B3B34; --btn:#5FDCC0; --btn-ink:#0F1D1A;
   --e:#86A9EE; --e-soft:#1F2A40; --s:#EE9B7F; --s-soft:#3A2520;
-  --b:#76CBA7; --b-soft:#1B3329; --i:#E2BA5A; --i-soft:#372D16; --on-q:#16131F;
+  --b:#76CBA7; --b-soft:#1B3329; --i:#E2BA5A; --i-soft:#372D16; --on-q:#0F1D1A;
   --shadow:0 12px 30px -18px rgba(0,0,0,.7); color-scheme:dark;
 }
 [hidden]{display:none!important}
@@ -231,12 +231,11 @@ function intro(){
     <h2>부모의 돈 버는 방식을 알아보는 경제 유형 테스트</h2>
     <p class="lede">『부자 아빠의 리치 패밀리』에 나오는 ‘현금흐름 사분면’을 육아 상황 질문으로 바꿔봤어요. 나는 어느 사분면에 가장 가까운 엄빠일까요? 아이의 돈 감각은 부모를 보고 배운대요.</p>
     <div class="card book">
-      <img src="book.jpg" alt="『부자 아빠의 리치 패밀리』 책 표지" onerror="this.remove()">
       <div>
         <p class="label" style="margin-bottom:2px">참고한 책</p>
         <p class="bt">『부자 아빠의 리치 패밀리』</p>
         <p class="fine">로버트 기요사키 · 3강 「어떤 사람이 되고 싶은지 선택하라」</p>
-        <span class="nosp">광고·협찬 아님 · 직접 읽고 만든 테스트</span>
+        <span class="nosp">광고·협찬 아님 · 도서관에서 빌려 읽은 책</span>
       </div>
     </div>
     <div class="card" style="display:flex;flex-direction:column;gap:10px">
@@ -350,7 +349,7 @@ function result(){
       <span class="btn" style="margin-top:6px">인스타그램에서 팔로우하기</span>
     </a>
 
-    <p class="fine">참고: 로버트 기요사키, 『부자 아빠의 리치 패밀리』 3강 「어떤 사람이 되고 싶은지 선택하라」. 책의 개념을 바탕으로 동글마미가 만든 재미용 셀프체크이며, 심리검사나 재무 진단이 아니에요. 특정 금융상품을 권하지 않으며, 출판사·저자로부터 받은 광고나 협찬은 없어요.</p>
+    <p class="fine">참고: 로버트 기요사키, 『부자 아빠의 리치 패밀리』 3강 「어떤 사람이 되고 싶은지 선택하라」. 책의 개념을 바탕으로 동글마미가 만든 재미용 셀프체크이며, 심리검사나 재무 진단이 아니에요. 특정 금융상품을 권하지 않으며, 출판사·저자로부터 받은 광고나 협찬은 없어요(도서관에서 빌려 읽은 책).</p>
   </section>`;
   requestAnimationFrame(()=>requestAnimationFrame(()=>app.querySelectorAll(".tr i").forEach(i=>i.style.width=i.dataset.w+"%")));
   document.getElementById("again").onclick = intro;
