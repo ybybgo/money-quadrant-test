@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>엄빠 머니 사분면 테스트</title>
+<title>엄마 아빠 돈 버는 스타일 테스트</title>
 <meta name="description" content="『부자 아빠의 리치 패밀리』 속 현금흐름 사분면(E·S·B·I)을 육아 상황 10문항으로 바꾼 셀프체크. 우리 집 돈은 어디서 오고 있을까? 약 2분.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:title" content="엄빠 머니 사분면 테스트">
+<meta property="og:title" content="엄마 아빠 돈 버는 스타일 테스트">
 <meta property="og:description" content="『부자 아빠의 리치 패밀리』 속 현금흐름 사분면(E·S·B·I)을 육아 상황 10문항으로 바꾼 2분 셀프체크. 우리 집 돈은 어디서 오고 있을까?">
 <meta property="og:url" content="https://ybybgo.github.io/money-quadrant-test/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -217,7 +217,7 @@ function intro(){
   app.innerHTML = `
   <section class="screen">
     <p class="eyebrow">2분 셀프체크 · 10문항</p>
-    <h1>엄빠 머니<br>사분면 테스트</h1>
+    <h1>엄마 아빠<br>돈 버는 스타일 테스트</h1>
     <h2>우리 집 돈은 어디서 오고 있을까?</h2>
     <p class="lede">『부자 아빠의 리치 패밀리』에 나오는 ‘현금흐름 사분면’을 육아 상황 질문으로 바꿔봤어요. 나는 어느 사분면에 가장 가까운 엄빠일까요?</p>
     <div class="card" style="display:flex;flex-direction:column;gap:10px">
@@ -289,7 +289,7 @@ function result(){
 
   app.innerHTML = `
   <section class="screen">
-    <p class="eyebrow">나의 머니 사분면</p>
+    <p class="eyebrow">나의 돈 버는 스타일</p>
     <div class="hero">
       <div class="badges">${tops.map(k=>`<span class="badge" style="background:${SOFT[k]};color:${COLOR[k]}">${k}</span>`).join("")}</div>
       <div class="t">
@@ -344,7 +344,7 @@ async function share(tops, score){
   const text = `나는 ${name} 나왔어! (E${score.E} S${score.S} B${score.B} I${score.I})\n당신은 어느 사분면이야? 2분이면 돼 👇`;
   const url = location.href.split("#")[0];
   try{
-    if(navigator.share){ await navigator.share({title:"엄빠 머니 사분면 테스트", text, url}); return; }
+    if(navigator.share){ await navigator.share({title:"엄마 아빠 돈 버는 스타일 테스트", text, url}); return; }
     await navigator.clipboard.writeText(text+"\n"+url);
     toast("링크를 복사했어요");
   }catch(e){ if(e && e.name!=="AbortError") toast("복사가 안 됐어요. 주소창 링크를 보내주세요"); }
