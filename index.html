@@ -10,6 +10,11 @@
 <meta property="og:title" content="우리 아이 부자 DNA 테스트 💰">
 <meta property="og:description" content="『부자 아빠의 리치 패밀리』 속 현금흐름 사분면(E·S·B·I)을 육아 상황 10문항으로 바꾼 2분 셀프체크. 우리 집 돈은 어디서 오고 있을까?">
 <meta property="og:url" content="https://ybybgo.github.io/money-quadrant-test/">
+<meta property="og:image" content="https://ybybgo.github.io/money-quadrant-test/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="우리 아이 부자 DNA 테스트: E·B·S·I 네 개의 사분면">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap">
@@ -113,6 +118,10 @@ p{margin:0}
 .prio h3{font-size:13px;margin:0;color:var(--muted);font-weight:400}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .follow{display:flex;flex-direction:column;gap:6px;text-align:center;text-decoration:none;color:inherit}
+.book{display:flex;gap:14px;align-items:center;padding:14px}
+.book img{width:84px;height:auto;max-height:120px;object-fit:cover;border-radius:8px;flex:none;box-shadow:0 6px 16px -8px rgba(0,0,0,.35)}
+.book .bt{font-family:var(--font-display);font-weight:700;font-size:16px}
+.nosp{display:inline-block;margin-top:6px;font-size:12px;padding:3px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-size:14px}
 </style>
 </head>
@@ -220,6 +229,15 @@ function intro(){
     <h1>우리 아이<br>부자 DNA 테스트 💰</h1>
     <h2>부모의 돈 버는 방식을 알아보는 경제 유형 테스트</h2>
     <p class="lede">『부자 아빠의 리치 패밀리』에 나오는 ‘현금흐름 사분면’을 육아 상황 질문으로 바꿔봤어요. 나는 어느 사분면에 가장 가까운 엄빠일까요? 아이의 돈 감각은 부모를 보고 배운대요.</p>
+    <div class="card book">
+      <img src="book.jpg" alt="『부자 아빠의 리치 패밀리』 책 표지" onerror="this.remove()">
+      <div>
+        <p class="label" style="margin-bottom:2px">참고한 책</p>
+        <p class="bt">『부자 아빠의 리치 패밀리』</p>
+        <p class="fine">로버트 기요사키 · 3강 「어떤 사람이 되고 싶은지 선택하라」</p>
+        <span class="nosp">광고·협찬 아님 · 직접 읽고 만든 테스트</span>
+      </div>
+    </div>
     <div class="card" style="display:flex;flex-direction:column;gap:10px">
       <div class="axis"><span>← 시간·노동으로 버는 돈</span><span>시스템·자산이 버는 돈 →</span></div>
       <div class="compass">
@@ -331,7 +349,7 @@ function result(){
       <span class="btn" style="margin-top:6px">인스타그램에서 팔로우하기</span>
     </a>
 
-    <p class="fine">참고: 로버트 기요사키, 『부자 아빠의 리치 패밀리』 3강 「어떤 사람이 되고 싶은지 선택하라」. 책의 개념을 바탕으로 동글마미가 만든 재미용 셀프체크이며, 심리검사나 재무 진단이 아니에요. 특정 금융상품을 권하지 않아요.</p>
+    <p class="fine">참고: 로버트 기요사키, 『부자 아빠의 리치 패밀리』 3강 「어떤 사람이 되고 싶은지 선택하라」. 책의 개념을 바탕으로 동글마미가 만든 재미용 셀프체크이며, 심리검사나 재무 진단이 아니에요. 특정 금융상품을 권하지 않으며, 출판사·저자로부터 받은 광고나 협찬은 없어요.</p>
   </section>`;
   requestAnimationFrame(()=>requestAnimationFrame(()=>app.querySelectorAll(".tr i").forEach(i=>i.style.width=i.dataset.w+"%")));
   document.getElementById("again").onclick = intro;
