@@ -318,7 +318,7 @@ function intro(){
     </div>
     <p class="fine">정답은 없어요. 지금 내 모습에 가장 가까운 걸 골라주세요. 어느 사분면이 더 낫다는 테스트가 아니고, 투자 조언도 아니에요.</p>
   </section>`;
-  document.getElementById("start").onclick = () => ask(0);
+  document.getElementById("start").onclick = () => { gcTrack("esbi/start", "테스트 시작"); ask(0); };
   window.scrollTo(0,0);
 }
 
@@ -354,6 +354,7 @@ function result(){
   // 공동 1위가 있으면 순서로 하나를 고르지 않고 전부 대표 유형으로 보여준다.
   const max = Math.max(...Object.values(score));
   const tops = ORDER.filter(k => score[k] === max);
+  gcTrack("esbi/result/" + tops.join("-"), "결과 유형");
   const multi = tops.length > 1;
   const left = score.E + score.S, right = score.B + score.I;
   const sideLine = left > right
@@ -443,6 +444,7 @@ function result(){
 }
 
 async function share(tops, score){
+  gcTrack("esbi/share", "배우자에게 보내기");
   const name = tops.length > 1 ? `${tops.join("·")} 하이브리드` : `${tops[0]} — ${TYPES[tops[0]].name}`;
   const text = `나는 ${name} 나왔어! (E${score.E} S${score.S} B${score.B} I${score.I})\n당신은 어느 사분면이야? 2분이면 돼 👇`;
   const url = location.href.split("#")[0].split("?")[0];
@@ -459,5 +461,10 @@ function toast(msg){
 }
 intro();
 </script>
+<script>
+// 방문자 측정(GoatCounter) 이벤트. 스크립트가 없거나 막혀도 아무 일도 안 한다
+function gcTrack(p, t){ try { window.goatcounter && goatcounter.count && goatcounter.count({path:p, title:t, event:true}); } catch (e) {} }
+</script>
+<script data-goatcounter="https://youbeanko.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
