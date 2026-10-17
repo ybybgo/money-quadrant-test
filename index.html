@@ -397,7 +397,7 @@ function result(){
       <div class="tags">${tops.flatMap(k=>TYPES[k].tags.slice(0, multi?2:3)).map(t=>`<span>${t}</span>`).join("")}</div>
       <p class="wm">우리 아이 부자 DNA 테스트 💰 · @${IG_HANDLE}</p>
     </div>
-    <p class="cap">📸 캡처해서 스토리에 올리고, 배우자 결과랑 비교해봐요</p>
+    <p class="cap">📸 캡처해서 스토리에 올리고, 친구·가족 결과랑 비교해봐요</p>
     <p class="one">${multi ? `${tops.map(k=>`<b>${TYPES[k].name}</b>`).join("과 ")}의 성향이 똑같이 강하게 나왔어요. 책에서도 한 사람이 여러 사분면에서 동시에 돈을 벌 수 있다고 해요.` : TYPES[tops[0]].one}</p>
 
     <div class="card">
@@ -420,7 +420,7 @@ function result(){
     </div>
 
     <div class="row">
-      <button class="btn" id="share">배우자에게 보내기</button>
+      <button class="btn" id="share">친구한테 보내기</button>
       <button class="btn ghost" id="again">다시 하기</button>
     </div>
 
@@ -444,9 +444,9 @@ function result(){
 }
 
 async function share(tops, score){
-  gcTrack("esbi/share", "배우자에게 보내기");
+  gcTrack("esbi/share", "친구한테 보내기");
   const name = tops.length > 1 ? `${tops.join("·")} 하이브리드` : `${tops[0]} — ${TYPES[tops[0]].name}`;
-  const text = `나는 ${name} 나왔어! (E${score.E} S${score.S} B${score.B} I${score.I})\n당신은 어느 사분면이야? 2분이면 돼 👇`;
+  const text = `나는 ${name} 나왔어! (E${score.E} S${score.S} B${score.B} I${score.I})\n너는 어느 사분면이야? 2분이면 돼 👇`;
   const url = location.href.split("#")[0].split("?")[0];
   try{
     if(navigator.share){ await navigator.share({title:"우리 아이 부자 DNA 테스트 💰", text, url}); return; }
