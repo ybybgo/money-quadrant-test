@@ -112,7 +112,6 @@ h2{font-size:17px;font-weight:800;line-height:1.45}
 .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:14px}
 .tags span{background:var(--tile-ink);color:#fff;border-radius:999px;padding:4px 11px;font-size:12.5px;font-weight:700}
 .rcard .wm{margin-top:14px;font-size:11.5px;font-weight:700;opacity:.7}
-.cap{font-size:13px;text-align:center;font-weight:700;color:var(--muted)}
 .one{font-size:15.5px;font-weight:600}
 
 .bars{display:flex;flex-direction:column;gap:12px}
@@ -148,11 +147,7 @@ h2{font-size:17px;font-weight:800;line-height:1.45}
 .gh b{font-size:15px;font-weight:800}
 .gh small{font-size:12.5px;color:var(--muted);font-weight:600}
 .guide ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:5px;font-size:14.5px}
-.mission{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:2.5px dashed var(--edge);border-radius:18px;padding:16px;text-align:left;width:100%;font-size:15px;font-weight:600}
-.mission .box{flex:none;width:28px;height:28px;border:2.5px solid var(--edge);border-radius:8px;display:grid;place-items:center;font-size:17px;font-weight:900;background:var(--bg)}
-.mission.done .box{background:var(--mint);color:var(--tile-ink)}
-.mission.done span{text-decoration:line-through;text-decoration-thickness:2px;opacity:.7}
-.mission small{display:block;margin-top:4px;color:var(--muted);font-weight:600;font-size:12px}
+.mission{margin:0;background:var(--surface);border:2.5px dashed var(--edge);border-radius:18px;padding:16px;font-size:15px;font-weight:600}
 
 .prio{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13.5px}
 .prio ol{margin:6px 0 0;padding-left:18px;font-weight:600}
@@ -387,8 +382,8 @@ function result(){
       <ul class="list">${T.watch.map(x=>`<li>${x}</li>`).join("")}</ul>
     </div>
     <div style="margin-top:6px">
-      <p class="sec-title"><span class="em">🎯</span>이번 주 미션</p>
-      <button class="mission" type="button"><span class="box"></span><span>${T.mission}<small>해냈으면 눌러서 체크!</small></span></button>
+      <p class="sec-title"><span class="em">🎯</span>이번 달 미션</p>
+      <p class="mission">${T.mission}</p>
     </div>`; };
 
   app.innerHTML = `
@@ -402,7 +397,6 @@ function result(){
       <div class="tags">${tops.flatMap(k=>TYPES[k].tags.slice(0, multi?2:3)).map(t=>`<span>${t}</span>`).join("")}</div>
       <p class="wm">우리 아이 부자 DNA 테스트 💰 · @${IG_HANDLE}</p>
     </div>
-    <p class="cap">📸 캡처해서 스토리에 올리고, 친구·가족 결과랑 비교해봐요</p>
     <p class="one">${multi ? `${tops.map(k=>`<b>${TYPES[k].name}</b>`).join("과 ")}의 성향이 똑같이 강하게 나왔어요. 책에서도 한 사람이 여러 사분면에서 동시에 돈을 벌 수 있다고 해요.` : TYPES[tops[0]].one}</p>
 
     <div class="card">
@@ -450,10 +444,6 @@ function result(){
     <p class="fine">참고: 로버트 기요사키, 『부자 아빠의 리치 패밀리』 3강 「어떤 사람이 되고 싶은지 선택하라」. 책의 개념을 바탕으로 동글마미가 만든 재미용 셀프체크이며, 심리검사나 재무 진단이 아니에요. 특정 금융상품을 권하지 않으며, 출판사·저자로부터 받은 광고나 협찬은 없어요(도서관에서 빌려 읽은 책).</p>
   </section>`;
   requestAnimationFrame(()=>requestAnimationFrame(()=>app.querySelectorAll(".tr i").forEach(i=>i.style.width=i.dataset.w+"%")));
-  app.querySelectorAll(".mission").forEach(m => m.onclick = () => {
-    m.classList.toggle("done");
-    m.querySelector(".box").textContent = m.classList.contains("done") ? "✓" : "";
-  });
   document.getElementById("again").onclick = intro;
   document.getElementById("share").onclick = () => share(tops, score);
   window.scrollTo(0,0);
